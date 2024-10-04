@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import VacanciesList from "./Component/VacanciesList";
+import VacanciesList from "./Component/VacanciesList/VacanciesList";
 
 function App() {
   return (

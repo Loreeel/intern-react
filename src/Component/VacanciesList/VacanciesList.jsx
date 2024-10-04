@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {useEffect, useState} from 'react';
 import styles from './VacanciesList.module.css'
+import CandidateList from "../CandidateList/CandidateList";
 
 const VacanciesList = () => {
 
@@ -16,12 +17,14 @@ const VacanciesList = () => {
             .then(response => setVacancies(response.data.data))
             .catch(error => console.error(error));
     }, []);
-
+    console.log(vacancies)
     return (<> {vacancies.map(vacancy => (
         <div className={styles.vacancyCard} key={vacancy.id}>
-            <h2>{vacancy.title}</h2><b>{vacancy.location}</b>
+            <span><h2>{vacancy.title}</h2><b>{vacancy.Location}</b></span>
             <p>{vacancy.description}</p>
-            <p><em>{vacancy.salary+"$/month"}</em></p>
+            <pre>{vacancy.Requirements}</pre>
+            <p><em>{vacancy.salary + "$/month"}</em></p>
+            <CandidateList props={vacancy}></CandidateList>
         </div>))}
     </>);
 }
